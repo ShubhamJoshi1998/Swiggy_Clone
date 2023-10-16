@@ -31,7 +31,7 @@ const Maincontainer = () => {
         fetchData();
     }, []);
 
-    console.log(restaurantList)
+    console.log(restaurantList.map((item) => console.log(item.info.id)))
 
     // const DilveryTime = () => {
     //     // restaurantList = )
@@ -89,7 +89,7 @@ const Maincontainer = () => {
                         <div className="item-bar">
                             <div className="number">{restaurantList.length} restaurants</div>
                             <div className="filters">
-                                <div className="relevance">Relevance</div>
+                                {/* <div className="relevance">Relevance</div> */}
                                 <div className="delivery" onClick={DilveryTime}>Delivery Time</div>
                                 <div className="rating" onClick={Rating}>Rating</div>
                                 <div className="cost-lh" onClick={lowPrice}>Cost: Low to High</div>
@@ -167,8 +167,10 @@ const Maincontainer = () => {
 
                                                     </div>
                                                     <div className="quick-view">
-                                                        <span role="button" aria-label="Open" className="view-btn">
-                                                            QUICK VIEW
+                                                        <span role="button" aria-label="Open" className="view-btn" >
+                                                            <a href={`/restaurant/${item.info.id}`}>
+                                                                QUICK VIEW
+                                                            </a>
                                                         </span>
                                                     </div>
                                                 </div>

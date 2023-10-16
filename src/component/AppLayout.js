@@ -2,6 +2,7 @@ import React from 'react'
 import Header from './Header/Header'
 import Footer from './Footer/Footer'
 import Maincontainer from './Maincontainer/Maincontainer'
+import FoodCarousel from './FoodCarousel/FoodCarousel'
 
 const AppLayout = () => {
     return (
@@ -30,6 +31,9 @@ const AppLayout = () => {
             <div className="main-container">
                 {/* Navbar Section */}
                 <Header />
+                {/* <div className='mx-8 sm:mx-14 md:mx-24 lg:mx-44 pb-4'>
+                <FoodCarousel />
+                </div> */}
                 {/* Content Section */}
                 <Maincontainer />
                 {/* Footer Section */}

@@ -32,6 +32,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -55,6 +56,7 @@
   z-index: 1000;
   padding: 0 20px;
 }
+
 .navbar .nav {
   max-width: 1200px;
   min-width: 1200px;
@@ -65,23 +67,28 @@
   display: flex;
   justify-content: space-between;
 }
+
 .navbar .left {
   display: flex;
   align-items: center;
 }
+
 .navbar .left .logo {
   display: block;
   height: 49px;
   transition: transform 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
   margin-right: 16px;
 }
+
 .navbar .left .logo:hover {
   transform: scale(1.1);
 }
+
 .navbar .location-div,
 .other {
   position: relative;
 }
+
 .navbar .location-div {
   display: flex;
   align-items: center;
@@ -93,9 +100,11 @@
   padding-right: 10px;
   font-size: 14px;
 }
+
 .navbar .right {
   position: relative;
 }
+
 .location-div .other {
   font-weight: 700;
   color: #3d4152;
@@ -103,10 +112,12 @@
   padding-bottom: 2px;
   border-bottom: 2px solid #3d4152;
 }
+
 .location-div .other:hover {
   color: #fc8019;
   border-bottom: 2px solid #fc8019;
 }
+
 .location-div .location {
   display: block;
   font-weight: 300;
@@ -114,6 +125,7 @@
   margin-left: 5px;
   color: #686b78;
 }
+
 .location-div .arrow-down {
   position: absolute;
   right: -6%;
@@ -123,10 +135,12 @@
   color: #fc8019;
   font-weight: 700;
 }
+
 .right .items {
   display: flex;
   align-items: center;
 }
+
 .right .items li {
   margin-right: 36px;
   color: #3d4152;
@@ -134,6 +148,7 @@
   font-weight: 500;
   list-style-type: none;
 }
+
 .right .items .nav-item {
   display: flex;
   align-items: center;
@@ -142,6 +157,7 @@
   height: 80px;
   cursor: pointer;
 }
+
 .right .items .nav-item a {
   display: flex;
   align-items: center;
@@ -149,6 +165,7 @@
   color: #3d4152;
   font-size: 16px;
 }
+
 .nav-item a:hover {
   color: #fc8019;
 }
@@ -156,6 +173,7 @@
 .nav-item a span {
   padding-left: 11px;
 }
+
 .right .items li:last-child a svg {
   color: #60b246;
 }
@@ -163,7 +181,7 @@
 /* Content Section */
 .restaurants .container {
   max-width: 1200px;
-  min-width: 1200px;
+  min-width: 1350px;
   position: relative;
   margin: 0 auto;
   padding-top: 42px;
@@ -171,17 +189,20 @@
   background: #fff;
   left: 31px;
 }
+
 .container .item-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .container .item-bar .number {
   font-weight: 600;
   font-size: 28px;
   color: #282c3f;
   margin-top: -3px;
 }
+
 .container .item-bar::after {
   color: #3d4152;
   position: absolute;
@@ -197,6 +218,7 @@
   display: flex;
   align-items: center;
 }
+
 .container .item-bar .filters div {
   font-size: 16px;
   font-weight: 300;
@@ -216,6 +238,7 @@
   top: 31px;
   background: #282c3f;
 }
+
 .restaurant-list {
   margin-bottom: 85px;
   display: grid;
@@ -231,28 +254,35 @@
   text-decoration: none;
   color: inherit;
 }
+
 .restaurant-list .list-item {
   padding: 25px 25px 57px;
   border: 1px solid #fff;
   contain: content;
 }
+
 .restaurant-list .list-item:hover {
   border-color: #d3d5df;
   box-shadow: 0 4px 7px 0 rgb(218 220 230 / 60%);
 }
+
 .restaurant-list .item-content {
   width: 254px;
   position: relative;
 }
+
 .top-img {
   background: #eef0f5;
   width: 254px;
   height: 160px;
   position: relative;
 }
+
 .top-img img {
   opacity: 1;
+  object-fit: cover;
 }
+
 .status {
   position: absolute;
   left: -8px;
@@ -264,6 +294,7 @@
   max-width: 50%;
   text-transform: uppercase;
 }
+
 .status::before {
   position: absolute;
   bottom: -9px;
@@ -279,18 +310,21 @@
 .place-name-div {
   margin-top: 14px;
 }
+
 .place-name-div .name {
   font-size: 17px;
   font-weight: 500;
   /* to bring text in next line */
   word-break: break-word;
 }
+
 .place-name-div .food-items {
   color: #686b78;
   font-size: 13px;
   margin-top: 4px;
   font-weight: 300;
 }
+
 .info-div {
   display: flex;
   align-items: center;
@@ -300,6 +334,7 @@
   color: #535665;
   font-weight: 300;
 }
+
 .info-div .rating {
   background-color: #db7c38;
   color: #fff;
@@ -310,12 +345,14 @@
   display: flex;
   align-items: center;
 }
+
 .icon-star {
   font-size: 10px;
   margin-right: 4px;
   position: relative;
   top: -1px;
 }
+
 .offer-div {
   border-top: 1px solid #e9e9eb;
   padding-top: 14px;
@@ -325,6 +362,7 @@
   align-items: center;
   font-weight: 600;
 }
+
 .offer-div .icon-offer-filled {
   font-size: 16px;
   width: 20px;
@@ -337,6 +375,7 @@
   font-size: 14px;
   line-height: 1.2;
 }
+
 .offer-text .fa-tags {
   margin-right: 2px;
 }
@@ -454,6 +493,7 @@
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
@@ -480,3 +520,499 @@
 }
 
 /* Add other specific styling as needed */
+
+/* body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+} */
+
+/* .container {
+  max-width: 800px;
+  margin: 5rem auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+} */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #93959f;
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.breadcrumbs span:hover::after {
+  display: flex;
+  cursor: pointer;
+}
+
+.breadcrumbs span {
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.actions {
+  display: flex;
+}
+
+.actions .heart-icon,
+.actions .search-icon {
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.restaurant-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  margin-right: 200px;
+}
+
+.restaurant-details {
+  width: 70%;
+}
+
+.restaurant-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #282c3f;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.cuisines,
+.location {
+  font-size: 14px;
+  color: #93959f;
+}
+
+.ratings {
+  width: 30%;
+}
+
+.rating-button {
+  border: 1px solid #e9e9eb;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.rating {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3d9b6d;
+}
+
+.total-ratings {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8b8d97;
+}
+
+.divider {
+  border: 1px dashed #e9e9eb;
+  margin: 2rem 0;
+}
+
+.additional-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.time-icon,
+.cost-icon {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.delivery-time,
+.cost-for-two {
+  display: flex;
+  align-items: center;
+}
+
+.delivery,
+.cost {
+  font-size: 16px;
+  font-weight: bold;
+  color: #3e4152;
+}
+
+.discounts {
+  font-size: 14px;
+  margin-top: 2rem;
+}
+
+/* .discounts p {
+  margin: 5px 0;
+} */
+.discounts {
+  font-size: 14px;
+  margin-top: 2rem;
+}
+
+.discounts p {
+  display: inline;
+  /* or inline-block if you want to add spacing between items */
+  margin-right: 200px;
+  /* Add margin for spacing between items */
+}
+
+/* Add more styles as needed */
+
+/* Basic styling, you can expand and customize this further */
+
+/* .container {
+  padding: 1rem;
+}
+
+.toggle-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.arrow-up,
+.arrow-down {
+  font-size: 20px;
+}
+
+.menu-item {
+  display: none;
+  border: 1px solid #d4d5d9;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.menu-item-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #3e4152;
+}
+
+.menu-item-price {
+  font-size: 14px;
+  font-weight: normal;
+  color: #3e4152;
+  margin-right: 1rem;
+}
+
+.menu-item-description {
+  font-size: 14px;
+  color: #282c3f73;
+  margin-top: 0.5rem;
+  max-width: 300px;
+}
+
+.menu-item-image img {
+  width: 118px;
+  height: 100px;
+  border: 1px solid #d4d5d9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-button {
+  position: relative;
+  width: 100px;
+  padding: 0.5rem;
+  font-weight: bold;
+  background-color: #fff;
+  border: 1px solid #d4d5d9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #60b246;
+  cursor: pointer;
+  margin-top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Toggle menu item display when the button is clicked */
+/* .toggle-button:focus + .menu-item {
+  display: block;
+} */
+/******************************** restaurant menu page ********************************/
+/* Styles for the overall restaurant page */
+
+
+/* Styles for the overall restaurant page */
+.restaurant-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  margin: 20px;
+}
+
+/* Styles for the restaurant info section */
+.restaurant-page .restaurant-info {
+  display: flex;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.restaurant-page .restaurant-image {
+  flex: 1;
+  /* max-width: 150px; */
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.restaurant-page .restaurant-details {
+  flex: 2;
+  text-align: left;
+}
+
+/* Rest of the CSS for restaurant details and menu stays the same */
+
+
+.restaurant-page .restaurant-name {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.restaurant-page .restaurant-rating,
+.restaurant-page .restaurant-ratings,
+.restaurant-page .restaurant-delivery-time,
+.restaurant-page .restaurant-cuisines,
+.restaurant-page .restaurant-cost,
+.restaurant-page .restaurant-address,
+.restaurant-page .restaurant-phone,
+.restaurant-page .restaurant-hours {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Styles for the restaurant menu section */
+.restaurant-page .restaurant-menu {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+}
+
+.restaurant-image img {
+  height: 230px;
+  width: 300px;
+}
+
+.restaurant-page .menu-heading {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.restaurant-page .menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.restaurant-page .menu-item {
+  display: flex;
+  margin: 10px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+}
+
+.restaurant-page .menu-item-image {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 8px 0 0 8px;
+}
+
+.restaurant-page .menu-item-details {
+  flex: 1;
+  padding: 10px;
+  text-align: left;
+  margin-left: 14px;
+}
+
+.restaurant-page .item-name {
+  font-size: 18px;
+  margin: 0;
+}
+
+.restaurant-page .item-description {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.restaurant-page .item-price {
+  font-size: 16px;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #ff5733;
+}
+
+/********************************************************/
+.orderNow-button {
+  text-align: center;
+  margin: 13px 0px;
+}
+
+.orderNow-button button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #fc6730;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 18px;
+}
+
+.card a {
+  text-decoration: none;
+  color: black;
+}
+
+/*************************Back Button*******************************/
+
+.previous {
+  color: #fff;
+  background-color: #ff5733;
+  padding: 11px 48px;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.previous:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+
+/*                ABOUT CONTAINER                 */
+/* Apply styles to the container of the text */
+.about-text-container {
+  text-align: center;
+  
+  padding: 20px;
+  
+}
+
+/* Style the first line of text */
+.about-text-line {
+  font-size: 20px;
+  /* Adjust the font size as needed */
+  font-family: 'Montserrat', sans-serif;
+  /* Use your desired font family */
+  color: #46423e;
+  /* Set the text color */
+  margin: 10px 0;
+}
+
+.about-belong-text {
+  font-size: 40px;
+  color: #ff5733;
+}
+
+/* Style the text "Where Do You Belong?" with "Belong" in bold */
+.about-belong-text-line {
+  font-size: 38px;
+  /* Adjust the font size as needed */
+  color: #333;
+  /* Text color */
+  margin: 10px 0;
+  /* Add spacing above and below the text */
+}
+
+/* Apply the "Montserrat" font family to "Where Do You" */
+.montserrat-text {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Apply the "Pacifico" font family to "Belong" and make it bold */
+.pacifico-bold {
+  font-family: 'Pacifico', cursive;
+  font-weight: bold;
+  color: #3c3838;
+}
+
+.about-swiggy-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* max-width: 800px; */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.about-item {
+  width: 30%;
+  /* Adjust this value to control the width of columns */
+  /* margin: 3px; */
+  background-color: #ffffff;
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.img-container {
+  max-width: 100%;
+  height: auto;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 1.4em;
+  color: #333;
+}
+
+.mission-container {
+  margin: 0;
+  padding: 0;
+  background-color: #f3752c; /* Orange background color */
+  font-family: 'Dancing Script', Arial, sans-serif;
+  color: #fff; /* White text color */
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 40vh;
+}
+
+.mission-container .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.mission-container p {
+  font-size: 40px;
+  line-height: 1.5;
+  font-family: 'Dancing Script', cursive, Arial, sans-serif;
+}
+
+.Add-button{
+  margin: 30px 200px 16px 200px;
+    /* width: 100px; */
+    padding: 10px 10px;
+    width: 80px;
+    height: max-content;
+    border-color: coral;
+    border-radius: 20px;
+    background-color: #10d1eb
+}
