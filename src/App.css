@@ -906,9 +906,9 @@
 /* Apply styles to the container of the text */
 .about-text-container {
   text-align: center;
-  
+
   padding: 20px;
-  
+
 }
 
 /* Style the first line of text */
@@ -983,12 +983,16 @@ h2 {
 .mission-container {
   margin: 0;
   padding: 0;
-  background-color: #f3752c; /* Orange background color */
+  background-color: #f3752c;
+  /* Orange background color */
   font-family: 'Dancing Script', Arial, sans-serif;
-  color: #fff; /* White text color */
+  color: #fff;
+  /* White text color */
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
   height: 40vh;
 }
 
@@ -1006,13 +1010,13 @@ h2 {
   font-family: 'Dancing Script', cursive, Arial, sans-serif;
 }
 
-.Add-button{
-  margin: 30px 200px 16px 200px;
-    /* width: 100px; */
-    padding: 10px 10px;
-    width: 80px;
-    height: max-content;
-    border-color: coral;
-    border-radius: 20px;
-    background-color: #10d1eb
+.Add-button {
+  margin: 30px 55px 16px 200px;
+  /* width: 100px; */
+  padding: 10px 10px;
+  width: 80px;
+  height: max-content;
+  border-color: coral;
+  border-radius: 10px;
+  /* background-color: #10d1eb */
 }
