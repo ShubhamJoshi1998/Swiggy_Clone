@@ -86,6 +86,13 @@ const Header = () => {
                             </li>
                             <li>
                                 <div className="nav-item">
+                                    <a href="/help">
+                                        <span>Help</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="nav-item">
                                     <a href="">
                                         <svg
                                             className="_1GTCc"

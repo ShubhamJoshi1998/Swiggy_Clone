@@ -1,29 +1,21 @@
 
 import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-// import useRestaurantMenu from '../utils/useRestaurantMenu';
 import { CDN_RESTRAU_IMG_URL } from '../../utils/cdn_urls';
-import { AiOutlineSearch, AiOutlineHeart } from "react-icons/ai";
-import RestaurantShimmer from '../Shimmer/Shimmer';
 import Header from '../Header/Header';
-// import MenuCard from './MenuCard';
-// import MenuItems from './MenuItems';
 import Shimmer from '../Shimmer/Shimmer';
-import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md'
+import Footer from '../Footer/Footer';
+import { addCusinesData } from '../../redux/actions/cusinesActions';
 
-const RestaurantDetails = () => {
+const RestaurantDetails = (props) => {
+    const { addCusinesData } = props;
     const [detailsPage, setDetailsPage] = useState();
     const [restrauInfo, setRestrauInfo] = useState();
-    const navigate = useNavigate();
+    const [counters, setCounters] = useState({});
     const params = useParams();
-    //check the names before destructuring
-    const { resId } = useParams();
-    // const { restaurantInfo, restaurantMenu } = useRestaurantMenu(resId);
-    console.log("params", params.id)
-
 
     const RESTRA_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
-
     useEffect(() => {
         const url = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.9124336&lng=75.7872709&restaurantId=${params.id}&catalog_qa=undefined&submitAction=ENTER`;
 
@@ -51,11 +43,56 @@ const RestaurantDetails = () => {
                 console.log("error", error);
             }
         };
-
         fetchData();
     }, []);
-    console.log(restrauInfo)
 
+    const availableItemNames = detailsPage?.filter((item) => counters[item.card.info.id])
+        .map((item) => ({
+            name: item.card.info.name,
+            price: item.card.info.finalPrice || item.card.info.price,
+            count: counters[item.card.info.id],
+        }));
+
+
+    const handleIncrementClick = (itemId) => {
+        const newCounters = { ...counters };
+        newCounters[itemId] = (newCounters[itemId] || 0) + 1;
+        setCounters(newCounters);
+        addCusinesData(newCounters)
+    };
+
+    const handleDecrementClick = (itemId) => {
+        if (counters[itemId] > 0) {
+            const newCounters = { ...counters };
+            newCounters[itemId] = newCounters[itemId] - 1;
+            setCounters(newCounters);
+            addCusinesData(newCounters)
+        }
+    };
+    console.log("countsValue", counters)
+
+
+    // itemCardsFiltered.forEach((item) => {
+
+    //     const itemId = item.card.info.id;
+
+    //     if (counters[itemId]) {
+
+    //       const availableItem = {
+
+    //         name: item.card.info.name,
+
+    //         price: item.card.info.finalPrice || item.card.info.price,
+
+    //         count: counters[itemId],
+
+    //       };
+
+    //       cartItems.push(availableItem);
+
+    //     }
+
+    //   });
 
     if (!restrauInfo) {
         return <div>
@@ -79,8 +116,6 @@ const RestaurantDetails = () => {
                             </div>
                             <div className="restaurant-details">
                                 <h1 className="restaurant-name">
-                                    {/* {restrauInfo[0]?.card?.card?.info?.name} */}
-
                                     {restrauInfo ? restrauInfo[0].card.card.info.name : ''}
                                 </h1>
                                 <p className="restaurant-rating">
@@ -115,29 +150,54 @@ const RestaurantDetails = () => {
                         <div className="restaurant-menu">
                             <h2 className="menu-heading">Menu</h2>
                             <ul className="menu-list">
-                                {detailsPage?.map((item, index) => (
-                                    <li key={item?.card?.info?.id} className="menu-item">
-                                        <img
-                                            src={RESTRA_CDN_URL + item.card.info.imageId}
-                                            alt={item?.card?.info?.name}
-                                            className="menu-item-image"
-                                        />
-                                        <div className="menu-item-details">
-                                            <h3 className="item-name">{item?.card?.info?.name}</h3>
-                                            <p className="item-description">{item?.card?.info?.description}</p>
-                                            <span className="item-price">₹{(item?.card?.info?.price) ? item?.card?.info?.price / 100 : item?.card?.info?.defaultPrice / 100}</span>
-                
-                                        </div>
-                                        
-                                        <button
+                                {detailsPage?.map((item, index) => {
+                                    // console.log("detailsPage.id", item?.card?.info?.id)
+                                    return (
+
+                                        <li key={item?.card?.info?.id} className="menu-item">
+                                            <img
+                                                src={RESTRA_CDN_URL + item.card.info.imageId}
+                                                alt={item?.card?.info?.name}
+                                                className="menu-item-image"
+                                            />
+                                            <div className="menu-item-details">
+                                                <h3 className="item-name">{item?.card?.info?.name}</h3>
+                                                <p className="item-description">{item?.card?.info?.description}</p>
+                                                <span className="item-price">₹{(item?.card?.info?.price) ? item?.card?.info?.price / 100 : item?.card?.info?.defaultPrice / 100}</span>
+
+                                            </div>
+                                            {/* {!isCounting ? (
+                                            <button
                                                 data-testid="addBtn"
                                                 className="Add-button"
-                                            // onClick={() => addFoodItem(ItemDetails)}
+                                                onClick={() => addFoodItem(item?.card?.info?.id)}
                                             >
                                                 Add
                                             </button>
-                                    </li>
-                                ))}
+                                        ) : ( */}
+                                            {/* <div className="counter">
+                                                <div className="count-container">
+                                                    <button onClick={() => handleIncrementClick(item?.card?.info?.id)}>+</button>
+                                                    <span>{count[item?.card?.info?.id]}</span>
+                                                    <button onClick={() => handleDecrementClick(item?.card?.info?.id)}>-</button>
+                                                </div>
+                                            </div> */}
+                                            {/* )} */}
+                                            {!counters[item.card.info.id] ? (
+                                                <button className="Add-button" onClick={() => handleIncrementClick(item.card.info.id)}>
+                                                    ADD
+                                                </button>
+                                            ) : (
+                                                <div >
+                                                    <button className="detail-add-button" onClick={() => handleDecrementClick(item.card.info.id)}>-</button>
+                                                    <span>{counters[item.card.info.id]}</span>
+                                                    <button className="detail-add-button" onClick={() => handleIncrementClick(item.card.info.id)}>+</button>
+                                                </div>
+
+                                            )}
+                                        </li>
+                                    )
+                                })}
                             </ul>
 
                         </div>
@@ -145,8 +205,17 @@ const RestaurantDetails = () => {
                     </div>
                 </div>
             </section>
+            <Footer />
         </div>
     )
 }
+const mapStateToProps = (state) => ({
 
-export default RestaurantDetails
+})
+
+const mapDispatchToProps = {
+    addCusinesData
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantDetails)
+
