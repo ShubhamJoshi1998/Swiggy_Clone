@@ -1,6 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { addCusinesData } from '../../redux/actions/cusinesActions'
 
-const Header = () => {
+const Header = (props) => {
+    const { addCusinesData, assetList } = props
+
+    const totalCount = assetList ? assetList.reduce((total, item) => total + item.count, 0) : "";
+    console.log("props", assetList)
     return (
         <header className="navbar">
             <div className="global-nav">
@@ -64,7 +70,7 @@ const Header = () => {
                             <li>
                                 <div className="nav-item">
                                     <a href="/">
-                                        
+
                                         <span>Home</span>
                                     </a>
                                 </div>
@@ -72,7 +78,7 @@ const Header = () => {
                             <li>
                                 <div className="nav-item">
                                     <a href="/about">
-                                        
+
                                         <span>About</span>
                                     </a>
                                 </div>
@@ -109,7 +115,8 @@ const Header = () => {
                             </li>
                             <li>
                                 <div className="nav-item">
-                                    <a href="">
+                                    <a href="/cart">
+                                        {totalCount > 0 ? totalCount : ""}
                                         <svg
                                             className="_1GTCc _2MSid"
                                             viewBox="-1 0 37 32"
@@ -130,5 +137,16 @@ const Header = () => {
         </header>
     )
 }
+const mapStateToProps = (state) => ({
+    assetList: state.cusinesReducer.assetList
+})
 
-export default Header
+const mapDispatchToProps = {
+    addCusinesData
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
+
+
+
+

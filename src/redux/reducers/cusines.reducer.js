@@ -13,7 +13,8 @@ const cusines = (state = initialState, action) => {
             console.log("reducer", action.data)
             return {
                 ...state,
-                loading: true
+                loading: true,
+                assetList: action.payload,
             }
         case ADD_CUSINES_SUCCESS:
             console.log("reducer", action.data)

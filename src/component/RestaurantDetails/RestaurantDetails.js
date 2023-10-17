@@ -46,19 +46,21 @@ const RestaurantDetails = (props) => {
         fetchData();
     }, []);
 
-    const availableItemNames = detailsPage?.filter((item) => counters[item.card.info.id])
+    const cartItems = detailsPage?.filter((item) => counters[item.card.info.id])
         .map((item) => ({
             name: item.card.info.name,
-            price: item.card.info.finalPrice || item.card.info.price,
+            price: item.card.info.finalPrice / 100
+                || item.card.info.price / 100,
             count: counters[item.card.info.id],
         }));
 
 
-    const handleIncrementClick = (itemId) => {
+
+    const handleIncrementClick = async (itemId) => {
         const newCounters = { ...counters };
         newCounters[itemId] = (newCounters[itemId] || 0) + 1;
         setCounters(newCounters);
-        addCusinesData(newCounters)
+        await addCusinesData(cartItems)
     };
 
     const handleDecrementClick = (itemId) => {
@@ -66,33 +68,16 @@ const RestaurantDetails = (props) => {
             const newCounters = { ...counters };
             newCounters[itemId] = newCounters[itemId] - 1;
             setCounters(newCounters);
-            addCusinesData(newCounters)
+            addCusinesData(cartItems)
         }
     };
+
+    useEffect(() => {
+        // This will run after cartItems and counters have been updated
+        addCusinesData(cartItems);
+    }, [cartItems, counters]);
+    
     console.log("countsValue", counters)
-
-
-    // itemCardsFiltered.forEach((item) => {
-
-    //     const itemId = item.card.info.id;
-
-    //     if (counters[itemId]) {
-
-    //       const availableItem = {
-
-    //         name: item.card.info.name,
-
-    //         price: item.card.info.finalPrice || item.card.info.price,
-
-    //         count: counters[itemId],
-
-    //       };
-
-    //       cartItems.push(availableItem);
-
-    //     }
-
-    //   });
 
     if (!restrauInfo) {
         return <div>
@@ -166,23 +151,7 @@ const RestaurantDetails = (props) => {
                                                 <span className="item-price">₹{(item?.card?.info?.price) ? item?.card?.info?.price / 100 : item?.card?.info?.defaultPrice / 100}</span>
 
                                             </div>
-                                            {/* {!isCounting ? (
-                                            <button
-                                                data-testid="addBtn"
-                                                className="Add-button"
-                                                onClick={() => addFoodItem(item?.card?.info?.id)}
-                                            >
-                                                Add
-                                            </button>
-                                        ) : ( */}
-                                            {/* <div className="counter">
-                                                <div className="count-container">
-                                                    <button onClick={() => handleIncrementClick(item?.card?.info?.id)}>+</button>
-                                                    <span>{count[item?.card?.info?.id]}</span>
-                                                    <button onClick={() => handleDecrementClick(item?.card?.info?.id)}>-</button>
-                                                </div>
-                                            </div> */}
-                                            {/* )} */}
+
                                             {!counters[item.card.info.id] ? (
                                                 <button className="Add-button" onClick={() => handleIncrementClick(item.card.info.id)}>
                                                     ADD

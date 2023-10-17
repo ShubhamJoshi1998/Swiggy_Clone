@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RestaurantDetails from './component/RestaurantDetails/RestaurantDetails';
 import About from './component/About/About';
 import Help from './component/Help/Help';
+import Cart from './component/Cart/Cart';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route  path="/restaurant/:id" element= {<RestaurantDetails />}/>
           <Route  path="/about" element= {<About />}/>
           <Route  path="/help" element= {<Help />}/>
+          <Route  path="/cart" element= {<Cart />}/>
         </Routes>
       </Router>
 
