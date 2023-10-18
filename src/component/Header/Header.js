@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addCusinesData } from '../../redux/actions/cusinesActions'
 
 const Header = (props) => {
     const { addCusinesData, assetList } = props
+    const [showLocationPopUp, setShowLocationPopUp] = useState(false);
+
+    const location = {};
 
     const totalCount = assetList ? assetList.reduce((total, item) => total + item.count, 0) : "";
     console.log("props", assetList)
@@ -41,12 +44,30 @@ const Header = (props) => {
                                 </defs>
                             </svg>
                         </a>
-                        <div className="location-div">
-                            <span className="other">Other</span>
-                            <span className="location">Delhi, India</span>
-                            <span className="arrow-down">
-                                <i className="fa-solid fa-angle-down" />
-                            </span>
+                        <div className="location-container">
+                            <div
+                                className={`location-text ${showLocationPopUp ? 'active' : ''}`}
+                                onClick={() => setShowLocationPopUp(!showLocationPopUp)}>
+                                <span className="arrow-down">
+                                    <i className="fa-solid fa-angle-down" />
+                                </span>
+                                {Object.keys(location).length > 0
+                                    ? location.address
+                                    : 'Hyderabad, Telangana, India'}
+                            </div>
+
+                            <div className={`location-slider ${showLocationPopUp ? 'active' : ''}`}>
+                                <button className="close-button" onClick={() => setShowLocationPopUp(false)}>
+                                    ✕
+                                </button>
+                                {/* <div className="container"> */}
+                                    <input
+                                        type="text"
+                                        placeholder="Enter your location"
+                                        className="slider-container"
+                                    />
+                                {/* </div> */}
+                            </div>
                         </div>
                     </div>
                     <div className="right">
