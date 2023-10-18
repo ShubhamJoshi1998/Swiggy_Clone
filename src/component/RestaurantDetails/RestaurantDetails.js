@@ -52,6 +52,7 @@ const RestaurantDetails = (props) => {
             price: item.card.info.finalPrice / 100
                 || item.card.info.price / 100,
             count: counters[item.card.info.id],
+            image: item.card.info.imageId
         }));
 
 
@@ -76,7 +77,7 @@ const RestaurantDetails = (props) => {
         // This will run after cartItems and counters have been updated
         addCusinesData(cartItems);
     }, [cartItems, counters]);
-    
+
     console.log("countsValue", counters)
 
     if (!restrauInfo) {

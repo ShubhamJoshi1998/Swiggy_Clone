@@ -2,13 +2,15 @@ import { ADD_CUSINES_ERROR, ADD_CUSINES_REQUEST, ADD_CUSINES_SUCCESS } from "../
 
 const initialState = {
     assetList: [],
+    loading: false,
+    error: null,
 
 }
 
 
 const cusines = (state = initialState, action) => {
     switch (action.type) {
-        
+
         case ADD_CUSINES_REQUEST:
             console.log("reducer", action.data)
             return {
@@ -29,10 +31,6 @@ const cusines = (state = initialState, action) => {
                 loading: false,
                 error: action.err
             }
-
-        
-
-
         default:
             return state
     }
