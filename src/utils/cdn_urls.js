@@ -5,4 +5,12 @@ export const RESTRA_LIST_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?
 export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.4594965&lng=77.0266383&restaurantId=";
 export const RESTRA_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
 
-export const AUTOCOMPLETE_URL = "https://corsproxy.io/?https://www.swiggy.com/dapi/misc/place-autocomplete";
+export const AUTOCOMPLETE_SEARCH_URL = "https://corsproxy.io/?https://www.swiggy.com/dapi/misc/place-autocomplete?input=";
+
+export const AREA_RESTAURANTS_FETCH_URL = "https://corsproxy.io/?https://www.swiggy.com/dapi/misc/address-recommend?place_id="
+
+
+
+
+
+

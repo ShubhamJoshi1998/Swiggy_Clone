@@ -1,9 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../Header/Header'
-// import './About.css'
-// import banner from "../../../public/Images/banner3.jpg"
 
 const About = () => {
+    const[avtar, setAvtar] = useState();
+
+    const data =  "https://api.github.com/users/ShubhamJoshi1998";
+    const fetchData = async () => {
+        try {
+            const response = await fetch(data);
+            const json = await response.json();
+            setAvtar(json)
+        } catch (error) {
+            console.log("error", error);
+        }
+    };
+    useEffect(() => {
+        fetchData();
+    },[])
+    console.log("avtar", avtar)
     return (
 
         <div className="main-container">
@@ -14,13 +28,13 @@ const About = () => {
             <div className="user-profile-container">
                 <div className="user-profile-card">
                     <img
-                        src="https://avatars.githubusercontent.com/u/50248026?v=4"
+                        src={avtar ? avtar.avatar_url : ""}
                         className="user-profile-image"
-                        alt="Preethi Pantangi"
+                        alt="Shubham Joshi"
                     />
                     <div className="user-profile-details text-center">
-                        <div className="user-profile-name font-bold">Shubham Joshi</div>
-                        <div>ReactJs Developer</div>
+                        <div className="user-profile-name font-bold">{avtar ? avtar.name : avtar}</div><br/>
+                        <div>{avtar ? avtar.bio : ""}</div><br/>
                         <div>Dwarka, Delhi</div>
                     </div>
                     <div className="user-profile-links">

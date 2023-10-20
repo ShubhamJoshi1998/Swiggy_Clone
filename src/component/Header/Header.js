@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { addCusinesData } from '../../redux/actions/cusinesActions'
+import LocationContainer from '../LocationContainer/LocationContainer'
 
 const Header = (props) => {
-    const { addCusinesData, assetList } = props
+    const { addCusinesData, assetList, address } = props
     const [showLocationPopUp, setShowLocationPopUp] = useState(false);
 
     const location = {};
 
     const totalCount = assetList ? assetList.reduce((total, item) => total + item.count, 0) : "";
-    console.log("props", assetList)
+    // console.log("props", assetList)
     return (
         <header className="navbar">
             <div className="global-nav">
@@ -44,35 +45,11 @@ const Header = (props) => {
                                 </defs>
                             </svg>
                         </a>
-                        <div className="location-container">
-                            <div
-                                className={`location-text ${showLocationPopUp ? 'active' : ''}`}
-                                onClick={() => setShowLocationPopUp(!showLocationPopUp)}>
-                                <span className="arrow-down">
-                                    <i className="fa-solid fa-angle-down" />
-                                </span>
-                                {Object.keys(location).length > 0
-                                    ? location.address
-                                    : 'Hyderabad, Telangana, India'}
-                            </div>
-
-                            <div className={`location-slider ${showLocationPopUp ? 'active' : ''}`}>
-                                <button className="close-button" onClick={() => setShowLocationPopUp(false)}>
-                                    ✕
-                                </button>
-                                {/* <div className="container"> */}
-                                    <input
-                                        type="text"
-                                        placeholder="Enter your location"
-                                        className="slider-container"
-                                    />
-                                {/* </div> */}
-                            </div>
-                        </div>
+                        <LocationContainer />
                     </div>
                     <div className="right">
                         <ul className="items">
-                            <li>
+                            {/* <li>
                                 <div className="nav-item">
                                     <a href="">
                                         <svg
@@ -87,11 +64,10 @@ const Header = (props) => {
                                         <span>Search</span>
                                     </a>
                                 </div>
-                            </li>
+                            </li> */}
                             <li>
                                 <div className="nav-item">
                                     <a href="/">
-
                                         <span>Home</span>
                                     </a>
                                 </div>
@@ -159,7 +135,9 @@ const Header = (props) => {
     )
 }
 const mapStateToProps = (state) => ({
-    assetList: state.cusinesReducer.assetList
+    assetList: state.cusinesReducer.assetList,
+    address: state.cusinesReducer.address
+
 })
 
 const mapDispatchToProps = {

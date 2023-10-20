@@ -1,25 +1,37 @@
 import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux';
 import { CDN_RESTRAU_IMG_URL } from '../../utils/cdn_urls';
 import Shimmer from '../Shimmer/Shimmer';
+import OfferSection from './OfferSection';
+import { getLocationData } from '../../redux/actions/cusinesActions';
 
-const Maincontainer = () => {
+const Maincontainer = (props) => {
+    const { getLocationData, areaData } = props;
     const [advice, setAdvice] = useState("");
     const [restaurantList, setRestaurantList] = useState([]);
-
-
+    // console.log("areaData", areaData, restaurantList)
 
     useEffect(() => {
-        const url = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6101645&lng=77.20674269999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+        var lat = "28.6101645";
+        var lng = "77.20674269999999";
+        // console.log("inital", lat, lng)
+        if (areaData) {
+            lat = areaData.lat;
+            lng = areaData.lng
 
+        }
+        // console.log("change", lat, lng)
+        const url = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING`;
+        // console.log("url", url)
         const fetchData = async () => {
             try {
                 const response = await fetch(url);
                 const json = await response.json();
-                console.log(json.data.cards.length);
+                // console.log("restau", json.data.cards.length);
                 for (let i = 0; i < json.data.cards.length; i++) {
                     if (json.data.cards[i].card.card.gridElements.infoWithStyle.restaurants != null && json.data.cards[i].card.card.gridElements.infoWithStyle.restaurants != "") {
                         let finalData = json.data.cards[i].card.card.gridElements.infoWithStyle.restaurants;
-                        console.log(finalData)
+                        // console.log(finalData)
                         setRestaurantList(finalData)
                     }
                 }
@@ -29,15 +41,10 @@ const Maincontainer = () => {
         };
 
         fetchData();
-    }, []);
+    }, [areaData]);
 
-    console.log(restaurantList.map((item) => console.log(item.info.id)))
+    // console.log(restaurantList.map((item) => console.log(item.info.id)))
 
-    // const DilveryTime = () => {
-    //     // restaurantList = )
-    //     // console.log("HEY",restaurantList)
-    //     setRestaurantList(restaurantList.sort((a,b) => a?.info?.sla?.deliveryTime - b?.info?.sla.deliveryTime))
-    // }
     const DilveryTime = () => {
 
         setRestaurantList(restaurantList
@@ -49,14 +56,8 @@ const Maincontainer = () => {
             }));
     }
 
-    // data.sort((a, b) => {
-    //     const costA = parseInt(a.costForTwo.slice(1), 10);
-    //     const costB = parseInt(b.costForTwo.slice(1), 10);
-    //     return costA - costB;
-    // });
-
     const lowPrice = () => {
-        console.log("lowPrice")
+        // console.log("lowPrice")
         setRestaurantList(restaurantList.filter(item => !isNaN(parseFloat(item?.info?.costForTwo.slice(1), 10))).sort((a, b) => {
             const costA = parseFloat(a?.info?.costForTwo.slice(1), 10);
             const costB = parseFloat(b?.info?.costForTwo.slice(1), 10);
@@ -65,7 +66,7 @@ const Maincontainer = () => {
     }
 
     const highPrice = () => {
-        console.log("highPrice")
+        // console.log("highPrice")
         setRestaurantList(restaurantList.filter(item => !isNaN(parseFloat(item?.info?.costForTwo.slice(1), 10))).sort((a, b) => {
             const costA = parseFloat(a?.info?.costForTwo.slice(1), 10);
             const costB = parseFloat(b?.info?.costForTwo.slice(1), 10);
@@ -74,7 +75,7 @@ const Maincontainer = () => {
     }
 
     const Rating = () => {
-        console.log("Rating")
+        // console.log("Rating")
         setRestaurantList(restaurantList.filter(item => !isNaN(parseFloat(item?.info?.avgRating))).sort((a, b) => {
             const costA = parseFloat(a?.info?.avgRating);
             const costB = parseFloat(b?.info?.avgRating);
@@ -86,7 +87,9 @@ const Maincontainer = () => {
             <main className="main-container">
                 <section className="restaurants">
                     <div className="container">
-                        <div className="item-bar">
+                        <div className="res-header bestOfferSection">Best offers for you</div>
+                        <OfferSection />
+                        <div className="item-bar res-header">
                             <div className="number">{restaurantList.length} restaurants</div>
                             <div className="filters">
                                 {/* <div className="relevance">Relevance</div> */}
@@ -104,7 +107,7 @@ const Maincontainer = () => {
                                     return (
                                         <div className="place">
                                             <a
-                                                href="/restaurants/waffld-domlur-bangalore-303446"
+                                                href={`/restaurant/${item.info.id}`}
                                                 className="place-link"
                                             >
                                                 <div className="list-item">
@@ -153,17 +156,6 @@ const Maincontainer = () => {
                                                             <div>•</div>
                                                             <div className="price">{item?.info?.costForTwo}</div>
                                                         </div>
-                                                        {/* {
-                                                        item?.info?.aggregatedDiscountInfoV3 != null && item?.info?.aggregatedDiscountInfoV3 != "" && item?.info?.aggregatedDiscountInfoV3 != undefined ?
-                                                            <div className="offer-div">
-                                                                <span className="icon-offer-filled">
-                                                                    <i className="fa-solid fa-tag" />
-                                                                </span>
-                                                                <span className="offer-text">
-                                                                    {item?.info?.aggregatedDiscountInfoV3?.header}  | Use WELCOME50
-                                                                </span>
-                                                            </div> : ""
-                                                    } */}
 
                                                     </div>
                                                     <div className="quick-view">
@@ -188,4 +180,15 @@ const Maincontainer = () => {
     )
 }
 
-export default Maincontainer
+
+
+
+const mapStateToProps = (state) => ({
+    areaData: state.cusinesReducer.areaData
+})
+
+const mapDispatchToProps = {
+    getLocationData
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Maincontainer)
