@@ -8,28 +8,10 @@ const Footer = () => {
                     COMPANY
                     <ul className="footer-ul">
                         <li className="footer-li">
-                            <a href="#">About us</a>
+                            <a href="/about">About us</a>
                         </li>
                         <li className="footer-li">
                             <a href="#">Team</a>
-                        </li>
-                        <li className="footer-li">
-                            <a href="#">Careers</a>
-                        </li>
-                        <li className="footer-li">
-                            <a href="#">Swiggy Blog</a>
-                        </li>
-                        <li className="footer-li">
-                            <a href="#">Bug Bounty</a>
-                        </li>
-                        <li className="footer-li">
-                            <a href="#">Swiggy Super</a>
-                        </li>
-                        <li className="footer-li">
-                            <a href="#">Swiggy Corporate</a>
-                        </li>
-                        <li className="footer-li">
-                            <a href="#">Swiggy Instamart</a>
                         </li>
                     </ul>
                 </div>
@@ -42,31 +24,19 @@ const Footer = () => {
                         <li className="footer-li">
                             <a href="#">Partner with us</a>
                         </li>
-                        <li className="footer-li">
-                            <a href="#">Ride with us</a>
-                        </li>
                     </ul>
                 </div>
                 <div className="points">
                     LEGAL
                     <ul className="footer-ul">
                         <li className="footer-li">
-                            <a href="#">Terms &amp; Conditions</a>
-                        </li>
-                        <li className="footer-li">
-                            <a href="#">Refund &amp; Cancellation</a>
+                            <a href="/terms&Conditions">Terms &amp; Conditions</a>
                         </li>
                         <li className="footer-li">
                             <a href="#">Privacy Policy</a>
                         </li>
                         <li className="footer-li">
-                            <a href="#">Cookie Policy</a>
-                        </li>
-                        <li className="footer-li">
-                            <a href="#">Offer Terms</a>
-                        </li>
-                        <li className="footer-li">
-                            <a href="#">Phishing &amp; Fraud</a>
+                            <a href="/cookiepolicy">Cookie Policy</a>
                         </li>
                     </ul>
                 </div>

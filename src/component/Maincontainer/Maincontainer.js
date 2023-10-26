@@ -9,7 +9,6 @@ const Maincontainer = (props) => {
     const { getLocationData, areaData } = props;
     const [advice, setAdvice] = useState("");
     const [restaurantList, setRestaurantList] = useState([]);
-    // console.log("areaData", areaData, restaurantList)
 
     useEffect(() => {
         var lat = "28.6101645";
@@ -31,12 +30,12 @@ const Maincontainer = (props) => {
                 for (let i = 0; i < json.data.cards.length; i++) {
                     if (json.data.cards[i].card.card.gridElements.infoWithStyle.restaurants != null && json.data.cards[i].card.card.gridElements.infoWithStyle.restaurants != "") {
                         let finalData = json.data.cards[i].card.card.gridElements.infoWithStyle.restaurants;
-                        // console.log(finalData)
+                     
                         setRestaurantList(finalData)
                     }
                 }
             } catch (error) {
-                console.log("error", error);
+                // console.log("error", error);
             }
         };
 
@@ -92,7 +91,6 @@ const Maincontainer = (props) => {
                         <div className="item-bar res-header">
                             <div className="number">{restaurantList.length} restaurants</div>
                             <div className="filters">
-                                {/* <div className="relevance">Relevance</div> */}
                                 <div className="delivery" onClick={DilveryTime}>Delivery Time</div>
                                 <div className="rating" onClick={Rating}>Rating</div>
                                 <div className="cost-lh" onClick={lowPrice}>Cost: Low to High</div>
@@ -101,11 +99,11 @@ const Maincontainer = (props) => {
                         </div>
                         <div className="restaurant-list">
                             {restaurantList.length === 0 ? (
-                                <Shimmer /> /* Display a loading shimmer effect while fetching data */
+                                <Shimmer /> 
                             ) : (
-                                restaurantList.map((item) => {
+                                restaurantList.map((item, index) => {
                                     return (
-                                        <div className="place">
+                                        <div key={index} className="place">
                                             <a
                                                 href={`/restaurant/${item.info.id}`}
                                                 className="place-link"
@@ -160,9 +158,7 @@ const Maincontainer = (props) => {
                                                     </div>
                                                     <div className="quick-view">
                                                         <span role="button" aria-label="Open" className="view-btn" >
-                                                            <a href={`/restaurant/${item.info.id}`}>
                                                                 QUICK VIEW
-                                                            </a>
                                                         </span>
                                                     </div>
                                                 </div>

@@ -1749,3 +1749,31 @@ span.locationLabel {
 span.locationLabel:hover{
   color: orange;
 }
+.termsContainer{
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+.termsContainer h1 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.termsContainer p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.termsContainer .section {
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}

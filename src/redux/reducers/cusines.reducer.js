@@ -54,7 +54,7 @@ const cusines = (state = initialState, action) => {
                 error: action.err
             }
         case GET_ADDRESS_REQUEST:
-            console.log("reducer area", action.payload)
+            // console.log("reducer area", action.payload)
             return {
                 ...state,
                 loading: true,

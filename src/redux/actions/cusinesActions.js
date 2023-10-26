@@ -19,7 +19,7 @@ export const getLocationData = (data) => {
 
 export const getAddress = (name, address) => {
     const data = { name, address }
-    console.log("actionlocation", data)
+    // console.log("actionlocation", data)
     return {
         type: GET_ADDRESS_REQUEST,
         payload: data

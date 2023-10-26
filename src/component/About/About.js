@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Header from '../Header/Header'
 
 const About = () => {
-    const[avtar, setAvtar] = useState();
+    const [avtar, setAvtar] = useState();
 
-    const data =  "https://api.github.com/users/ShubhamJoshi1998";
+    const data = "https://api.github.com/users/ShubhamJoshi1998";
     const fetchData = async () => {
         try {
             const response = await fetch(data);
@@ -16,14 +16,13 @@ const About = () => {
     };
     useEffect(() => {
         fetchData();
-    },[])
-    console.log("avtar", avtar)
+    }, [])
+    // console.log("avtar", avtar)
     return (
 
         <div className="main-container">
             <Header />
 
-            {/* <div className="container"> */}
             <img src="/Images/banner3.jpg" alt="" style={{ paddingTop: "80px", width: "100%" }} className='img-container' />
             <div className="user-profile-container">
                 <div className="user-profile-card">
@@ -33,8 +32,8 @@ const About = () => {
                         alt="Shubham Joshi"
                     />
                     <div className="user-profile-details text-center">
-                        <div className="user-profile-name font-bold">{avtar ? avtar.name : avtar}</div><br/>
-                        <div>{avtar ? avtar.bio : ""}</div><br/>
+                        <div className="user-profile-name font-bold">{avtar ? avtar.name : avtar}</div><br />
+                        <div>{avtar ? avtar.bio : ""}</div><br />
                         <div>Dwarka, Delhi</div>
                     </div>
                     <div className="user-profile-links">
@@ -62,18 +61,6 @@ const About = () => {
                                 className="user-profile-link-icon"
                             />
                         </a>
-                        {/* <a
-                            href="https://pantangisaipreethi3.wixsite.com/portfolio"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="user-profile-link"
-                        >
-                            <img
-                                src="https://cdn-icons-png.flaticon.com/512/686/686165.png"
-                                alt="Portfolio"
-                                className="user-profile-link-icon"
-                            />
-                        </a> */}
                     </div>
                 </div>
             </div>
@@ -110,7 +97,7 @@ const About = () => {
                     <h2>CORPORATE SUPPORT FUNCTIONS</h2>
                 </div>
             </div>
-            <div class="mission-container">
+            <div className="mission-container">
                 <p>
                     Our mission is to elevate the quality of life for the urban consumer with<br />
                     unparalleled convenience. Convenience is what makes us tick. It's what makes
@@ -121,11 +108,6 @@ const About = () => {
                 <span className="montserrat-text" style={{ color: "black" }}>The Swiggy <span className="pacifico-bold">Journey</span></span>
                 <img src="/Images/Swiggy-Journey.jpg" alt="" style={{ paddingTop: "80px", width: "100%" }} />
             </div>
-
-
-
-
-            {/* </div> */}
 
         </div>
     )

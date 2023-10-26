@@ -7,7 +7,7 @@ import { addCusinesData } from '../../redux/actions/cusinesActions'
 const CartPage = (props) => {
     const { addCusinesData, assetList } = props
 
-    console.log(assetList)
+    // console.log(assetList)
     const [cartItems, setCartItems] = useState(assetList);
     const navigate = useNavigate();
 
@@ -33,6 +33,7 @@ const CartPage = (props) => {
             return item;
         });
         setCartItems(updatedCart);
+        addCusinesData(updatedCart)
     };
 
     const decrementCount = (itemId) => {
@@ -43,6 +44,7 @@ const CartPage = (props) => {
             return item;
         });
         setCartItems(updatedCart);
+        addCusinesData(updatedCart)
     };
 
     const openPaymentPopup = () => {
