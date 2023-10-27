@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 const Help = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -87,6 +88,7 @@ return (
         ))}
       </div>
     </div>
+    <Footer />
   </div>
 );
 };
