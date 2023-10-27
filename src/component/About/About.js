@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../Header/Header'
+import Footer from '../Footer/Footer';
 
 const About = () => {
     const [avtar, setAvtar] = useState();
@@ -108,6 +109,7 @@ const About = () => {
                 <span className="montserrat-text" style={{ color: "black" }}>The Swiggy <span className="pacifico-bold">Journey</span></span>
                 <img src="/Images/Swiggy-Journey.jpg" alt="" style={{ paddingTop: "80px", width: "100%" }} />
             </div>
+            <Footer />
 
         </div>
     )

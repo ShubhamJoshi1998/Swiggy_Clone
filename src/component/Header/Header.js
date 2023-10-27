@@ -5,7 +5,6 @@ import LocationContainer from '../LocationContainer/LocationContainer'
 
 const Header = (props) => {
     const { addCusinesData, assetList, address } = props
-    const [showLocationPopUp, setShowLocationPopUp] = useState(false);
 
     const location = {};
 
@@ -16,7 +15,7 @@ const Header = (props) => {
             <div className="global-nav">
                 <div className="nav">
                     <div className="left">
-                        <a href="#home" className="logo">
+                        <a href="/" className="logo">
                             <svg
                                 className="_8pSp-"
                                 viewBox="0 0 559 825"

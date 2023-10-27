@@ -281,6 +281,7 @@
 .top-img img {
   opacity: 1;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .status {
@@ -408,7 +409,7 @@
 
 /* Footer Section */
 .footer {
-  padding: 0 20px;
+  /* padding: 0 20px; */
   z-index: 10;
   background-color: #000;
   min-height: 298px;
@@ -1242,14 +1243,14 @@ h1 {
 
 .payment-content {
   background-color: #fff;
-  padding: 20px;
+  padding: 45px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 .payment-amount {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -1429,13 +1430,13 @@ h1 {
 .close-button {
   margin-left: auto;
   /* Push the button to the right */
-  font-size: 24px;
+  /* font-size: 24px; */
   /* Adjust the font size as needed */
   color: #ff7f00;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 10px;
 }
 
 /* LocationComponent.css */
@@ -1776,4 +1777,83 @@ span.locationLabel:hover{
   padding: 20px;
   border-radius: 4px;
   background-color: #f9f9f9;
+}
+
+.Cross-btn {
+  width: 100%;
+  text-align: right;
+}
+
+/* Accordion Container */
+.accordion {
+  /* width: 100%;
+  max-width: 400px; */
+  margin: 0 auto;
+  padding: 100px;
+  flex: 1;
+  /* min-height: 80vh; */
+  
+}
+
+/* Accordion Item */
+.accordion-item {
+  /* border-bottom: 1px solid #ddd; */
+  border-bottom: 1px solid #d4d5d9;
+  /* overflow: hidden; */
+}
+
+/* Accordion Question */
+.accordion-question {
+  background-color: #f2f2f2;
+  background: transparent;
+  color: #333;
+  /* align-items: left; */
+  padding: 20px 0 26px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.accordion-question:hover {
+  background-color: #ddd;
+  color: #555;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Active Question (when expanded) */
+.accordion-question.active {
+  background-color: #f78b2d;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Accordion Answer */
+.accordion-answer {
+  background-color: #fff;
+  color: #333;
+  padding: 15px;
+  display: none;
+}
+
+.accordion-answer.show {
+  display: block;
+  animation: fade-in 0.5s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.MayIhelp {
+  font-size: 26px;
+  font-weight: bold;
+  color: coral;
+  text-align: left;
 }

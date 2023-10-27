@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import { connect } from 'react-redux'
 import { addCusinesData } from '../../redux/actions/cusinesActions'
+import PayPalButton from '../Paypal/Paypal';
 
 const CartPage = (props) => {
     const { addCusinesData, assetList } = props
@@ -33,7 +34,7 @@ const CartPage = (props) => {
             return item;
         });
         setCartItems(updatedCart);
-        addCusinesData(updatedCart)
+        // addCusinesData(updatedCart)
     };
 
     const decrementCount = (itemId) => {
@@ -44,7 +45,7 @@ const CartPage = (props) => {
             return item;
         });
         setCartItems(updatedCart);
-        addCusinesData(updatedCart)
+        // addCusinesData(updatedCart)
     };
 
     const openPaymentPopup = () => {
@@ -102,6 +103,7 @@ const CartPage = (props) => {
                                 <button onClick={openPaymentPopup} className="proceed-to-payment-button">
                                     Proceed to Payment
                                 </button>
+
                             </div>
                         ) : (
                             <div className="empty-cart-container">
@@ -117,15 +119,20 @@ const CartPage = (props) => {
                         {isPaymentPopupOpen && !isOrderPlaced && (
                             <div className="payment-popup">
                                 <div className="payment-content">
+                                    {/* <div className='Cross-btn'> */}
+                                        <button className="close-button" onClick={closePaymentPopup}>
+                                            ✕
+                                        </button>
+                                    {/* </div> */}
                                     <div className="payment-amount">
                                         Payment Amount: ₹{calculateTotalPrice()}
                                     </div>
-                                    <button onClick={handlePay} className="pay-button">
+                                    <PayPalButton totalAmount={calculateTotalPrice()} />
+                                    {/* <button onClick={handlePay} className="pay-button">
                                         Pay
-                                    </button>
-                                    <button className="close-button" onClick={closePaymentPopup}>
-                                        Close
-                                    </button>
+                                    </button> */}
+
+                                    {/* <img src="/Images/chlajaa.jpg" /> */}
                                 </div>
                             </div>
                         )}
