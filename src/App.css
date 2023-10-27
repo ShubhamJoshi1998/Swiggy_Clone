@@ -1857,3 +1857,74 @@ span.locationLabel:hover{
   color: coral;
   text-align: left;
 }
+
+
+.particle-wrapper {
+  border: 1px solid red;
+  width: 100px;
+  height: 100px;
+}
+.payment-container {
+  background-color: #f3f4f6;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-container .content {
+  background-color: #fff;
+  padding: 4rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  width: 800px;
+
+}
+
+.payment-container .icon {
+  font-size: 11rem;
+  color: #48bb78; /* Green color */
+  margin-bottom: 1rem;
+}
+
+.payment-container .heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333; /* Grayish text color */
+  margin: 10px 0;
+}
+
+.payment-container .text {
+  font-size: 1rem;
+  color: #666; /* Light gray text color */
+  margin: 10px 0;
+}
+
+.payment-container .order-details {
+  font-size: 1rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+.payment-container .button {
+  width: 233px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.payment-container .btn {
+  color: #fff;
+  background-color: #6574cd;
+  border-radius: 4px;
+  padding: 10px 24px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color .2s;
+  text-align: center;
+  display: block;
+}
+
+.payment-container .btn:hover {
+  background-color: #5668b7; /* Darker indigo on hover */
+}

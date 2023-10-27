@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import { connect } from 'react-redux'
 import { addCusinesData } from '../../redux/actions/cusinesActions'
 import PayPalButton from '../Paypal/Paypal';
+import PaymentSuccess from '../PaymentSuccess/Paymentsuccess';
 
 const CartPage = (props) => {
     const { addCusinesData, assetList } = props
@@ -16,6 +17,15 @@ const CartPage = (props) => {
 
     const [isPaymentPopupOpen, setPaymentPopupOpen] = useState(false);
     const [isOrderPlaced, setOrderPlaced] = useState(false);
+    const [paymentDetails, setPaymentDetails] = useState(null);
+
+    // Callback function to handle redirection to the success page
+    const handleSuccess = (details) => {
+        setPaymentDetails(details);
+        addCusinesData([]);
+        // dispatch(clearCart());
+        // Redirect to the success page or perform any other desired action
+    };
 
     const clearCart = () => {
         setCartItems([]);
@@ -69,81 +79,88 @@ const CartPage = (props) => {
     return (
         <div className="main-container">
             <Header />
-            <section className="restaurants">
-                <div className="container">
-                    <div className="cart-page">
-                        {cartItems.length > 0 ? (
-                            <>
-                                <h1>Your Cart</h1>
-                                <div className="clear-cart-container">
-                                    <button onClick={clearCart} className="clear-cart-button">
-                                        Clear Cart
-                                    </button>
-                                </div>
-                            </>) : ""}
-                        {cartItems?.map((item) => (
-                            <div key={item.name} className="cart-item">
-                                <img src={RESTRA_CDN_URL + item.image} alt={item.name} className="item-image" />
-                                <div className="item-details">
-                                    <h2 className="item-title">{item.name}</h2>
-                                    <p className="item-price">₹{(item.price * item.count).toFixed(2)}</p>
-                                </div>
-                                <div className="quantity-controls">
-                                    <button onClick={() => decrementCount(item.name)} className="quantity-button">-</button>
-                                    <span className="item-count">{item.count}</span>
-                                    <button onClick={() => incrementCount(item.name)} className="quantity-button">+</button>
-                                </div>
-                            </div>
-                        ))}
-                        {cartItems.length > 0 ? (
-
-
-                            <div className="cart-footer">
-                                <div className="total-price">Total: ₹{calculateTotalPrice()}</div>
-                                <button onClick={openPaymentPopup} className="proceed-to-payment-button">
-                                    Proceed to Payment
-                                </button>
-
-                            </div>
-                        ) : (
-                            <div className="empty-cart-container">
-                                <div className="empty-cart-message">
-                                    <div className="empty-cart-icon"></div>
-                                    <div className="empty-cart-title">Your cart is empty</div>
-                                    <div className="empty-cart-subtitle">You can go to the home page to view more restaurants</div>
-                                    <button className="see-restaurants-button" onClick={() => navigate('/')}>See restaurants near you</button>
-                                </div>
-                            </div>
-                        )}
-
-                        {isPaymentPopupOpen && !isOrderPlaced && (
-                            <div className="payment-popup">
-                                <div className="payment-content">
-                                    {/* <div className='Cross-btn'> */}
-                                        <button className="close-button" onClick={closePaymentPopup}>
-                                            ✕
-                                        </button>
-                                    {/* </div> */}
-                                    <div className="payment-amount">
-                                        Payment Amount: ₹{calculateTotalPrice()}
+            {
+                paymentDetails?.status === "COMPLETED" ? (
+                    <PaymentSuccess paymentDetails={paymentDetails} />
+                ) : (
+                    <section className="restaurants">
+                        <div className="container">
+                            <div className="cart-page">
+                                {cartItems.length > 0 ? (
+                                    <>
+                                        <h1>Your Cart</h1>
+                                        <div className="clear-cart-container">
+                                            <button onClick={clearCart} className="clear-cart-button">
+                                                Clear Cart
+                                            </button>
+                                        </div>
+                                    </>) : ""}
+                                {cartItems?.map((item) => (
+                                    <div key={item.name} className="cart-item">
+                                        <img src={RESTRA_CDN_URL + item.image} alt={item.name} className="item-image" />
+                                        <div className="item-details">
+                                            <h2 className="item-title">{item.name}</h2>
+                                            <p className="item-price">₹{(item.price * item.count).toFixed(2)}</p>
+                                        </div>
+                                        <div className="quantity-controls">
+                                            <button onClick={() => decrementCount(item.name)} className="quantity-button">-</button>
+                                            <span className="item-count">{item.count}</span>
+                                            <button onClick={() => incrementCount(item.name)} className="quantity-button">+</button>
+                                        </div>
                                     </div>
-                                    <PayPalButton totalAmount={calculateTotalPrice()} />
-                                    {/* <button onClick={handlePay} className="pay-button">
+                                ))}
+                                {cartItems.length > 0 ? (
+
+
+                                    <div className="cart-footer">
+                                        <div className="total-price">Total: ₹{calculateTotalPrice()}</div>
+                                        <button onClick={openPaymentPopup} className="proceed-to-payment-button">
+                                            Proceed to Payment
+                                        </button>
+
+                                    </div>
+                                ) : (
+                                    <div className="empty-cart-container">
+                                        <div className="empty-cart-message">
+                                            <div className="empty-cart-icon"></div>
+                                            <div className="empty-cart-title">Your cart is empty</div>
+                                            <div className="empty-cart-subtitle">You can go to the home page to view more restaurants</div>
+                                            <button className="see-restaurants-button" onClick={() => navigate('/')}>See restaurants near you</button>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {isPaymentPopupOpen && !isOrderPlaced && (
+                                    <div className="payment-popup">
+                                        <div className="payment-content">
+                                            {/* <div className='Cross-btn'> */}
+                                            <button className="close-button" onClick={closePaymentPopup}>
+                                                ✕
+                                            </button>
+                                            {/* </div> */}
+                                            <div className="payment-amount">
+                                                Payment Amount: ₹{calculateTotalPrice()}
+                                            </div>
+                                            <PayPalButton totalAmount={calculateTotalPrice()} onSuccess={handleSuccess} />
+                                            {/* <button onClick={handlePay} className="pay-button">
                                         Pay
                                     </button> */}
 
-                                    {/* <img src="/Images/chlajaa.jpg" /> */}
-                                </div>
+                                            {/* <img src="/Images/chlajaa.jpg" /> */}
+                                        </div>
+                                    </div>
+                                )}
+                                {isOrderPlaced && (
+                                    <div className="order-placed-message">
+                                        Your order is successfully placed!
+                                    </div>
+                                )}
                             </div>
-                        )}
-                        {isOrderPlaced && (
-                            <div className="order-placed-message">
-                                Your order is successfully placed!
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </section>
+                        </div>
+                    </section>
+                )
+            }
+
         </div>
     );
 };

@@ -2,12 +2,16 @@
 import React, { useState } from "react";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
  
-const PayPalButton = ({ totalAmount }) => {
+const PayPalButton = ({ totalAmount, onSuccess  }) => {
   const [paymentDetails, setPaymentDetails] = useState(null);
  
   const handleApprove = (data, actions) => {
     return actions.order.capture().then((details) => {
       setPaymentDetails(details);
+      if (details.status === "COMPLETED") {
+        // Call the onSuccess callback to handle redirection
+        onSuccess(details);
+      }
     });
   };
  
@@ -30,7 +34,7 @@ const PayPalButton = ({ totalAmount }) => {
         />
       </PayPalScriptProvider>
  
-      {paymentDetails && (
+      {/* {paymentDetails && (
         <div className="payment-details">
           <h3>Payment Successful!</h3>
           <p>Payment ID: {paymentDetails.id}</p>
@@ -38,7 +42,7 @@ const PayPalButton = ({ totalAmount }) => {
           <p>Payment Amount: ₹{paymentDetails.purchase_units[0].amount.value}</p>
           <p>Payment Status: {paymentDetails.status}</p>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

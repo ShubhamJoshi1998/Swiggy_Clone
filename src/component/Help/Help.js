@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Fire from '../FireCrackers/Firecrackers';
 
 const Help = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -88,6 +89,7 @@ return (
         ))}
       </div>
     </div>
+    {/* <Fire /> */}
     <Footer />
   </div>
 );
