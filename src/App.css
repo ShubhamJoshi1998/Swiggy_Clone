@@ -1928,3 +1928,15 @@ span.locationLabel:hover{
 .payment-container .btn:hover {
   background-color: #5668b7; /* Darker indigo on hover */
 }
+
+span.cart-count {
+  background: #ff5733;
+  text-align: center;
+  padding: 1px 5px 0px 6px !important;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0px -21px 22px 0px;
+  z-index: 999;
+}

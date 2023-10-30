@@ -96,7 +96,8 @@ const Header = (props) => {
                             <li>
                                 <div className="nav-item">
                                     <a href="/cart">
-                                        {totalCount > 0 ? totalCount : ""}
+                                        {totalCount > 0 ? <span className='cart-count'>{totalCount > 0 ? totalCount : ""}</span> : ""}
+
                                         <svg
                                             className="_1GTCc _2MSid"
                                             viewBox="-1 0 37 32"
