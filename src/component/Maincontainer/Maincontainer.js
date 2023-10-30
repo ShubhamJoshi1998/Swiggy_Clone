@@ -132,15 +132,15 @@ const Maincontainer = (props) => {
                                                                     <div className="status-title">{item?.info?.aggregatedDiscountInfoV3.header}</div>
                                                                 </div> : " "
                                                         }
-
                                                         <div className="place-name-div">
-                                                            <div className="name">{item?.info?.name}</div>
+                                                            <div className="name">{item?.info?.name}</div>                                                  
                                                             <div
                                                                 className="food-items"
                                                                 title="Italian, Pizzas, Fast Food, Mexican, Desserts, Beverages"
                                                             >
                                                                 {(item?.info?.cuisines.join(", ")).substring(0, 40) + "..."}
                                                             </div>
+                                                            <div style={{fontSize:"13px"}}>{`${item?.info?.areaName}`}</div>
                                                         </div>
                                                         <div className="info-div">
                                                             <div className="rating">
