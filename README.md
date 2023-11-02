@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# SwiggyClone - Swiggy-inspired Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SwiggyClone is your passport to a seamless and delightful food ordering experience. We've harnessed state-of-the-art technology and a feature-rich toolkit to deliver the very best of restaurant dining, right at your fingertips.
 
-## Available Scripts
+## Tech Stack
 
-In the project directory, you can run:
+- **Frontend:** React (Functional component-based)
+- **Routing:** react-router-dom
+- **Styling:** Bootstrap, CSS
+- **State Management:** Redux 
+- **Payment Gateway:** PayPal
 
-### `npm start`
+## Key Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Seamless Integration:** SwiggyClone seamlessly integrates with Swiggy's public API, providing access to a wide range of restaurant data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Elegant Shimmer UI:** Enhance user experience with a captivating Shimmer UI effect, creating a smooth and engaging interface.
 
-### `npm test`
+- **Landing Page:** The landing page features a dynamic Carousel and a curated list of restaurants to attract and inform users.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Filtering:** Robust search and filtering options empower users to quickly find their favorite restaurants.
 
-### `npm run build`
+- **Restaurant Menu Pages:** Explore restaurant menu pages with categorized listings, making it easy to find your desired dishes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Cart Management:** Conveniently add and remove items from the shopping cart for a smooth ordering process.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Streamlined Checkout:** The checkout page offers a hassle-free experience, guiding users through the payment process.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Payment Gateway Integration:** Secure transactions with seamless integration of the PayPal payment gateway.
 
-### `npm run eject`
+## Code Highlights
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+SwiggyClone incorporates several cutting-edge technologies and best practices, including:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Parcel:** Utilized for efficient package management.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **JSX:** Employed for rendering components efficiently.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Routing:** Implemented using react-router-dom to ensure smooth navigation within the application.
 
-## Learn More
+- **Custom Hooks:** Crafted to enhance functionality and maintain code modularity.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **State Management:** Leveraged React useContext Hook and Redux Toolkit for app-wide state control.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Cart Management:** Efficiently managed the shopping cart, ensuring a seamless user experience.
 
-### Code Splitting
+- **Payment Gateway:** Seamlessly integrated the PayPal payment gateway for secure transactions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Live APIs Integration:** Worked with live APIs to fetch real-time data, keeping information up-to-date.
 
-### Analyzing the Bundle Size
+- **Controlled and Uncontrolled Components:** Utilized for various use cases to provide better control and user interaction.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Higher-Order Components (HOC):** Explored to enhance code reusability and maintainability.
 
-### Making a Progressive Web App
+- **Modern JavaScript Features:** Embraced modern features like optional chaining for cleaner code.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **Lazy Loading and Suspense:** Experimented with these techniques for improved performance and user experience.
 
-### Advanced Configuration
+## Project Links
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+[![Video Title](https://drive.google.com/uc?export=view&id=1VD_0r9Ilf3lVZPWR7aEFSO74F53lP-pd)]()
 
-### Deployment
+- **GitHub Repository:** [GitHub](https://github.com/ShubhamJoshi1998/Swiggy_Clone)
+- **Live Preview:** [View Food Village](https://sj-swiggy-clone.vercel.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Explore the project's code and experience Food Village in action through the provided links.
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for your interest in Food Village. We hope you enjoy using and exploring this project!
