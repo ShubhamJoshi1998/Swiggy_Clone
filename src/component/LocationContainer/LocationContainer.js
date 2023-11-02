@@ -108,7 +108,7 @@ const LocationContainer = ({ address, getLocationData, getAddress }) => {
                 className={`location-text ${showLocationPopUp ? 'active' : ''}`}
                 onClick={() => setShowLocationPopUp(!showLocationPopUp)}
             >
-                {address ? `${address.name.substring(0, 30)}...` : ''}
+                {/* {address ? `${address.name.substring(0, 30)}...` : ''} */}
                 <span className="arrow-down">
                     <i className="fa-solid fa-angle-down" />
                 </span>
